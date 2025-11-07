@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs1sro287651d"]
+
+[ext_resource type="Script" uid="uid://4kbhy4sduw4f" path="res://player/tv.gd" id="1_lt5as"]
+[ext_resource type="Shader" uid="uid://dqn75050fnup1" path="res://player/vhs_sahder.gdshader" id="2_3y8ll"]
+[ext_resource type="PackedScene" uid="uid://c3h3p8p0obwu7" path="res://player/models/tv.glb" id="2_jpemy"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_phewf"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_281a1"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_281a1"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_3y8ll")
+shader_parameter/SCREEN_TEXTURE = SubResource("ViewportTexture_281a1")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3y8ll"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="TV" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_lt5as")
+metadata/_custom_type_script = "uid://d3ef4us2ny670"
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3995769, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_phewf")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-8.343406e-09, 0, 0.076427445, 0, 0.14822201, 0, -0.19087489, 0, -3.34075e-09, 0.43247306, 0.0016364455, 0.12873545)
+visible = false
+material_override = SubResource("ShaderMaterial_281a1")
+texture = SubResource("ViewportTexture_3y8ll")
+
+[node name="Node3D" type="Node3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 1.0658141e-14, 0, 0.9999999, 0, 2.842171e-14, 0, 0.9999994, 0.09975505, 0, 6.257138)
+
+[node name="Node3D2" type="Node3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 1.2434498e-14, 0, 0.9999999, 0, 2.842171e-14, 0, 0.99999934, 0.09975511, 0, 5.281939)
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+
+[node name="tv" parent="." instance=ExtResource("2_jpemy")]
+transform = Transform3D(0.435939, 0, 0, 0, 0.435939, 0, 0, 0, 0.435939, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3995769, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_phewf")
