@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hjahi04n422c"
-path.s3tc="res://.godot/imported/ostone.png-9b5644fe9ca00355f71b209f1b854421.s3tc.ctex"
+uid="uid://cncillhxr0d6g"
+path.s3tc="res://.godot/imported/capsule_metall.png-2c53aacf40058c912619b4791a214ae9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "ed001bab93cc009e381e261f33cc1d4f"
+}
 
 [deps]
 
-source_file="res://player/models/ostone.png"
-dest_files=["res://.godot/imported/ostone.png-9b5644fe9ca00355f71b209f1b854421.s3tc.ctex"]
+source_file="res://player/models/capsule_metall.png"
+dest_files=["res://.godot/imported/capsule_metall.png-2c53aacf40058c912619b4791a214ae9.s3tc.ctex"]
 
 [params]
 

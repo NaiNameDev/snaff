@@ -10,6 +10,8 @@
 radius = 3.181844
 
 [node name="sub_player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "intercatc_ray")]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_8ubiq")
 camera = NodePath("Camera3D")
 intercatc_ray = NodePath("Camera3D/RayCast3D")
@@ -43,5 +45,7 @@ monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="exploision_radius"]
 shape = SubResource("SphereShape3D_gd25m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="exploision_radius" to="." method="_on_exploision_radius_body_entered"]

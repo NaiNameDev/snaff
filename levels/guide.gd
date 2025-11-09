@@ -6,4 +6,4 @@ func _ready() -> void:
 	$granade.connect("interact", on_granade_pick)
 
 func on_granade_pick(player: CharacterBody3D):
-	$CanvasLayer/Label.text = "EXPLODE YOURSELF TO OPEN THE DOOR {E}"
+	$CanvasLayer/Label.text = "HE EXPLODE YOURSELF TO OPEN THE DOOR {E}"

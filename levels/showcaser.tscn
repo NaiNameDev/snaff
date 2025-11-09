@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ijnjcpmu7x"]
+
+[ext_resource type="Script" uid="uid://ce76gnuu3pae7" path="res://levels/showcaser.gd" id="1_yurkd"]
+
+[node name="showcaser" type="Label"]
+modulate = Color(1, 1, 1, 0)
+offset_top = 120.0
+offset_right = 640.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_yurkd")

@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 func use():
 	if item != Items.items.DEF:
 		if item == Items.items.GRANADE:
+			item = Items.items.DEF
 			tv.on_kill()
 			await get_tree().create_timer(0.4).timeout
 			$AudioStreamPlayer3D.play()
@@ -35,6 +36,16 @@ func use():
 			$AudioStreamPlayer3D.stop()
 			tv.goal_status.emit(goal)
 
+func machine_death():
+	tv.on_kill()
+	for i in 16: await camera_shake()
+
+func camera_shake():
+	var old = camera.position
+	camera.position += Vector3(randf_range(0.05,0.15), randf_range(0.05,0.15), randf_range(0.05,0.15))
+	await get_tree().create_timer(0.06).timeout
+	camera.position = old
+
 func interact() -> void:
 	if Input.is_action_just_pressed("action") and intercatc_ray.get_collider():
 		intercatc_ray.get_collider().interact.emit(self)
@@ -42,9 +53,6 @@ func interact() -> void:
 func move(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
