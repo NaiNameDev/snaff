@@ -1,11 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl16tsf34xfyk"]
+[gd_scene load_steps=9 format=3 uid="uid://dl16tsf34xfyk"]
 
 [ext_resource type="Script" uid="uid://bnsewyq6bv8xb" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Script" uid="uid://dp423qpdq22en" path="res://player/camera.gd" id="2_g1dw6"]
+[ext_resource type="Shader" uid="uid://d3mk2mrw1ny3n" path="res://player/clear_noise.gdshader" id="3_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://dc1a4wa1nysbl" path="res://levels/sound/noise.mp3" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yw30f"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_rkbax"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw30f"]
+shader = ExtResource("3_g1dw6")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g1dw6"]
+
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "intercatc_ray")]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_rkbax")
 camera = NodePath("Camera3D")
 intercatc_ray = NodePath("Camera3D/RayCast3D")
@@ -23,3 +34,27 @@ player = NodePath("..")
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 2
 collide_with_areas = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
+doppler_tracking = 2
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(1.9999924, 1.9999924)
+texture = SubResource("CanvasTexture_rkbax")
+
+[node name="noise" type="Sprite2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_yw30f")
+position = Vector2(321.75, 240.25)
+scale = Vector2(644.5, 481.5)
+texture = SubResource("CanvasTexture_g1dw6")
+
+[node name="noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_yw30f")
+max_db = -10.0
+autoplay = true
+parameters/looping = true

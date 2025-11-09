@@ -10,7 +10,7 @@ func _ready() -> void:
 	player.connect("input", local_input)
 
 func local_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and player.focus:
 		player.rotate_y(deg_to_rad(-event.relative.x * 0.2))
 		rotate_x(deg_to_rad(-event.relative.y * 0.2))
 		rotation.x = clamp(rotation.x, deg_to_rad(-89), deg_to_rad(89))

@@ -1,33 +1,70 @@
 extends CharacterBody3D
 
+enum {
+	DEF,
+	TRANS,
+	ONFOCUS
+}
+var state = DEF
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @export var camera: Camera3D
 @export var intercatc_ray: RayCast3D
-@export var can_move: bool = true
 
-@export var anim_time: float = 0.8
+func _ready() -> void:
+	$noise.play()
+	await get_tree().create_timer(1.0).timeout
+	$CanvasLayer/noise.visible = false
+	$noise.stop()
 
 func _physics_process(delta: float) -> void:
-	if can_move:
-		interact()
-		move(delta)
-	else:
-		interact()
-		if Input.is_action_just_pressed("action"):
-			focus_on(global_position + Vector3(0,0.8,0))
-			await get_tree().create_timer(anim_time).timeout
-			can_move = true
+	match state:
+		DEF:
+			interact()
+			move(delta)
+		TRANS:
+			$CanvasLayer/Sprite2D.visible = false
+			velocity = Vector3(0,0,0)
+		ONFOCUS:
+			interact()
 	move_and_slide()
 
-func focus_on(pos: Vector3):
-	var twn: Tween = camera.create_tween()
-	twn.tween_property(camera, "global_position", pos, anim_time).set_trans(Tween.TRANS_QUAD)
+func focus_on(pos: Vector3, look: Vector3):
+	state = TRANS
+	var oldrot = camera.global_rotation
+	camera.look_at(camera.global_position + (look - pos))
+	var rot = camera.global_rotation
+	camera.global_rotation = oldrot
+	
+	var twn1 = camera.create_tween()
+	var twn2 = create_tween()
+	var twn3 = camera.create_tween()
+	twn1.set_trans(Tween.TRANS_SINE)
+	twn2.set_trans(Tween.TRANS_SINE)
+	twn1.tween_property(camera, "global_position", pos, (pos.length() + global_position.length()) / 10)
+	twn3.tween_property(camera, "global_rotation", Vector3(rot.x, rot.y,0), 0.5)
+	await twn2.tween_property(self, "global_rotation", Vector3(rot.x, rot.y,0), 0.5).finished
+	state = ONFOCUS
+
+func unfocus():
+	state = TRANS
+	var twn1 = camera.create_tween()
+	twn1.set_trans(Tween.TRANS_SINE)
+	await twn1.tween_property(camera, "global_position", global_position + Vector3(0,0.8,0), 0.5).finished
+	state = DEF
 
 func interact() -> void:
-	if Input.is_action_just_pressed("action") and intercatc_ray.get_collider():
-		intercatc_ray.get_collider().interact.emit()
+	if intercatc_ray.get_collider():
+		if state == DEF:
+			$CanvasLayer/Sprite2D.visible = true
+		else:
+			$CanvasLayer/Sprite2D.visible = false
+		if Input.is_action_just_pressed("tv_use"):
+			intercatc_ray.get_collider().interact.emit(self)
+	else:
+		$CanvasLayer/Sprite2D.visible = false
 
 func move(delta: float) -> void:
 	if not is_on_floor():

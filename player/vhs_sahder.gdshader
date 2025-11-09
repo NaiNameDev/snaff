@@ -21,6 +21,7 @@ uniform float distort_intensity : hint_range(0.0, 0.2) = 0.05;
 
 uniform float noise_opacity : hint_range(0.0, 1.0) = 0.4;
 uniform float noise_speed = 5.0;
+uniform bool full_noise = true;
 
 uniform float static_noise_intensity : hint_range(0.0, 1.0) = 0.06;
 
@@ -144,8 +145,11 @@ void fragment()
     }
 
     if (static_noise_intensity > 0.0){
-        text.rgb += clamp(random((ceil(uv * resolution) / resolution) + fract(TIME)).x, 0.0, 1.0) * static_noise_intensity;
-    }
+		if (!full_noise) {
+			text.rgb += clamp(random((ceil(uv * resolution) / resolution) + fract(TIME)).x, 0.0, 1.0) * static_noise_intensity;
+		}
+		else text.rgb = vec3(clamp(random((ceil(uv * resolution) / resolution) + fract(TIME)).x, 0.0, 1.0),clamp(random((ceil(uv * resolution) / resolution) + fract(TIME)).x, 0.0, 1.0),clamp(random((ceil(uv * resolution) / resolution) + fract(TIME)).x, 0.0, 1));
+	}
 
     text.rgb *= border(uv);
     text.rgb *= vignette(uv);
@@ -165,4 +169,5 @@ void fragment()
     }
 
     ALBEDO = vec3(text.r, text.g, text.b);
+	ALPHA = text.a;
 }

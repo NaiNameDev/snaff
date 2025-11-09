@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvmkw4glyqpvy"]
+
+[ext_resource type="Script" uid="uid://dsd2ry656elkq" path="res://player/pickable/granade.gd" id="1_8614t"]
+[ext_resource type="PackedScene" uid="uid://bvyw10h8fm7fq" path="res://player/models/granada.glb" id="1_qags3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qags3"]
+size = Vector3(0.18597412, 0.20205688, 0.36132813)
+
+[node name="granade" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_8614t")
+
+[node name="granada" parent="." instance=ExtResource("1_qags3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0016174316, 0.002456665, 0.036132813)
+shape = SubResource("BoxShape3D_qags3")

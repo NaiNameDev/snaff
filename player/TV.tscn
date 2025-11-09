@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs1sro287651d"]
+[gd_scene load_steps=9 format=3 uid="uid://bs1sro287651d"]
 
 [ext_resource type="Script" uid="uid://4kbhy4sduw4f" path="res://player/tv.gd" id="1_lt5as"]
 [ext_resource type="Shader" uid="uid://dqn75050fnup1" path="res://player/vhs_sahder.gdshader" id="2_3y8ll"]
 [ext_resource type="PackedScene" uid="uid://c3h3p8p0obwu7" path="res://player/models/tv.glb" id="2_jpemy"]
+[ext_resource type="AudioStream" uid="uid://dc1a4wa1nysbl" path="res://levels/sound/noise.mp3" id="4_281a1"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_phewf"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -28,6 +29,7 @@ shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
+shader_parameter/full_noise = true
 shader_parameter/static_noise_intensity = 0.06
 shader_parameter/aberration = 0.03
 shader_parameter/brightness = 1.4
@@ -40,13 +42,14 @@ shader_parameter/vignette_opacity = 0.5
 [sub_resource type="ViewportTexture" id="ViewportTexture_3y8ll"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[node name="TV" type="Area3D"]
+[node name="TV" type="Area3D" node_paths=PackedStringArray("focus_point", "look_point", "audio_player")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_lt5as")
+focus_point = NodePath("Sprite3D/Node3D")
+look_point = NodePath("Sprite3D/Node3D2")
+audio_player = NodePath("noise")
 metadata/_custom_type_script = "uid://d3ef4us2ny670"
-
-[node name="Node3D" type="Node3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3995769, 0, 0, 0)
@@ -54,15 +57,14 @@ shape = SubResource("ConcavePolygonShape3D_phewf")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-8.343406e-09, 0, 0.076427445, 0, 0.14822201, 0, -0.19087489, 0, -3.34075e-09, 0.43247306, 0.0016364455, 0.12873545)
-visible = false
 material_override = SubResource("ShaderMaterial_281a1")
 texture = SubResource("ViewportTexture_3y8ll")
 
 [node name="Node3D" type="Node3D" parent="Sprite3D"]
-transform = Transform3D(1, 0, 1.0658141e-14, 0, 0.9999999, 0, 2.842171e-14, 0, 0.9999994, 0.09975505, 0, 6.257138)
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 0.9999999, 0, 2.842171e-14, 0, 0.99999905, 0.09975511, 0, 6.924808)
 
 [node name="Node3D2" type="Node3D" parent="Sprite3D"]
-transform = Transform3D(1, 0, 1.2434498e-14, 0, 0.9999999, 0, 2.842171e-14, 0, 0.99999934, 0.09975511, 0, 5.281939)
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 0.9999999, 0, 2.842171e-14, 0, 0.9999989, 0.09975523, 0, 5.949612)
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D"]
 
@@ -74,3 +76,12 @@ transform = Transform3D(0.435939, 0, 0, 0, 0.435939, 0, 0, 0, 0.435939, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3995769, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_phewf")
+
+[node name="noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_281a1")
+unit_size = 100.0
+max_db = -10.0
+pitch_scale = 0.77
+autoplay = true
+max_distance = 5.0
+parameters/looping = true
