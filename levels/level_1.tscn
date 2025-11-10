@@ -73,7 +73,7 @@ cull_mode = 2
 albedo_texture = ExtResource("6_btoec")
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ydsr0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_vjtdm"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -103,7 +103,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAP+//////////7//////AAD/v///AAD///+///8AAP////8AAP//////////////////AAAAAP////8AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f///3////9/////f////39qgNUAaoDVAGqA1QBqgNUA/3//f/9//3//f/9//3//fwAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ydsr0")
+shadow_mesh = SubResource("ArrayMesh_vjtdm")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gwceb"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
@@ -128,7 +128,7 @@ cull_mode = 2
 albedo_texture = ExtResource("8_08mmt")
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2ijtv"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_bgw3c"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -158,7 +158,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAP+//////////7//////AAD/v///AAD///+///8AAP////8AAP//////////////////AAAAAP////8AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/3//f/9//3//f/9//3//fwAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2ijtv")
+shadow_mesh = SubResource("ArrayMesh_bgw3c")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_aerfg"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
@@ -413,7 +413,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("BoxShape3D_bt44k")
 
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="main_level/Node3D"]
-transform = Transform3D(-4.216753e-08, 0, 8.419274, 0, 3.8925705, 0, -0.9646807, 0, -3.6801816e-07, -2.5068176, -1.2604318, 4.364833)
+transform = Transform3D(-2.0741055e-07, 0, 8.419275, 0, 3.8925705, 0, -4.7450004, 0, -3.6801822e-07, -2.5068176, -1.2604318, 6.30873)
 mesh = SubResource("BoxMesh_gwceb")
 skeleton = NodePath("../../..")
 
@@ -974,6 +974,7 @@ shape = SubResource("BoxShape3D_nmsli")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="showcaser" parent="CanvasLayer" instance=ExtResource("13_betor")]
+theme_override_font_sizes/font_size = 42
 
 [node name="level_changer" parent="." instance=ExtResource("14_betor")]
 transform = Transform3D(-0.011204767, 0, -0.99993724, 0, 1, 0, 0.99993724, 0, -0.011204767, -2.4143176, 0.5797081, 5.1455135)

@@ -35,6 +35,8 @@ func use():
 			await get_tree().create_timer(0.1).timeout
 			$AudioStreamPlayer3D.stop()
 			tv.goal_status.emit(goal)
+			$OmniLight3D.visible = false
+			$CollisionShape3D.queue_free()
 
 func machine_death():
 	tv.on_kill()

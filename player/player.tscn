@@ -41,6 +41,38 @@ current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = -10.0
+offset_top = -4.0
+offset_right = 648.0
+offset_bottom = 484.0
+
+[node name="exit" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 412.0
+offset_right = 188.0
+offset_bottom = 450.0
+text = "exit"
+
+[node name="cont" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 357.0
+offset_right = 188.0
+offset_bottom = 395.0
+text = "continue"
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 31.0
+offset_right = 610.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 48
+text = "PAUSE"
+
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 position = Vector2(320, 240)
@@ -58,3 +90,6 @@ stream = ExtResource("4_yw30f")
 max_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[connection signal="pressed" from="CanvasLayer/Panel/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/cont" to="." method="_on_cont_pressed"]

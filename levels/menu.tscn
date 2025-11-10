@@ -1,0 +1,161 @@
+[gd_scene load_steps=7 format=3 uid="uid://ducvhtb5wy87b"]
+
+[ext_resource type="Texture2D" uid="uid://70qqh1qhc0pk" path="res://player/models/fresh_tetxures/stone.png" id="1_cnlwo"]
+[ext_resource type="Script" uid="uid://bgkw0iebhgv1h" path="res://levels/menu.gd" id="1_gbx6r"]
+[ext_resource type="PackedScene" uid="uid://bs1sro287651d" path="res://player/TV.tscn" id="2_kfbsc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfbsc"]
+albedo_texture = ExtResource("1_cnlwo")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gbx6r"]
+
+[sub_resource type="Environment" id="Environment_cnlwo"]
+background_energy_multiplier = 0.0
+tonemap_mode = 4
+tonemap_white = 6.3
+ssao_enabled = true
+ssao_power = 3.4460938
+ssao_detail = 2.02
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gbx6r")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05603242, 0.56171536)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(9.992495, 0, 0, 0, 1, 0, 0, 0, 8.761704, 0, -0.938868, 0)
+material_override = SubResource("StandardMaterial3D_kfbsc")
+mesh = SubResource("BoxMesh_gbx6r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(0.88201994, -0.3048065, 0.35935187, 0, 0.76261187, 0.6468564, -0.471212, -0.57054025, 0.6726389, -0.00699006, 2.0363512, -0.53302604)
+light_energy = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Node3D"]
+environment = SubResource("Environment_cnlwo")
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.12983054, 3.627141, 0.7129159)
+light_energy = 3.0
+light_specular = 0.0
+light_bake_mode = 1
+spot_range = 8.746122
+spot_angle = 61.153263
+spot_angle_attenuation = 2.4622936
+
+[node name="TV" parent="SubViewportContainer/SubViewport/Node3D" node_paths=PackedStringArray("view_port") instance=ExtResource("2_kfbsc")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.09198815, 0, -1.1132474)
+view_port = NodePath("../..")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
+layout_mode = 0
+offset_left = 158.0
+offset_top = 5.0
+offset_right = 464.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 100
+text = "SNAFF"
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 396.0
+offset_right = 294.0
+offset_bottom = 452.0
+text = "WATCH FROM START"
+
+[node name="episodes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 396.0
+offset_right = 608.0
+offset_bottom = 452.0
+text = "EPISODES"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_top = 120.0
+offset_right = 489.0
+offset_bottom = 384.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 341.0
+offset_bottom = 264.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+text = "sigma"
+
+[node name="Button2" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "sigma"
+
+[node name="Button3" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "sigma"
+
+[node name="Button4" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "sigma"
+
+[node name="Button5" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "sigma"
+
+[node name="Button6" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "sigma"
+
+[node name="Button7" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "sigma"
+
+[node name="x" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = -22.0
+offset_right = 363.0
+offset_bottom = 9.0
+text = "X"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="episodes" to="." method="_on_episodes_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button3" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button4" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button5" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button6" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button7" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/x" to="." method="_on_x_pressed"]

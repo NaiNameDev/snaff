@@ -10,7 +10,8 @@ func _ready() -> void:
 	$TV.connect("goal_status", gs)
 	$TV.connect("interact", guide_enter)
 	await get_tree().create_timer(2.0).timeout
-	$CanvasLayer/showcaser.showcase("level 0: GUIDE")
+	$CanvasLayer/Label.visible = true
+	$CanvasLayer/showcaser.showcase("episode 0: GUIDE")
 
 func guide_enter(p: CharacterBody3D):
 	if !$TV.is_dead:

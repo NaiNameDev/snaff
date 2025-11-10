@@ -3,7 +3,8 @@ extends CharacterBody3D
 enum {
 	DEF,
 	TRANS,
-	ONFOCUS
+	ONFOCUS,
+	PAUSE,
 }
 var state = DEF
 
@@ -19,16 +20,37 @@ func _ready() -> void:
 	$CanvasLayer/noise.visible = false
 	$noise.stop()
 
+func pause():
+	state = PAUSE
+	$CanvasLayer/Panel.visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+
+func unpause():
+	state = DEF
+	$CanvasLayer/Panel.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func pouse_check():
+	if Input.is_action_just_pressed("pause"):
+		if state == PAUSE:
+			unpause()
+		else:
+			pause()
+
 func _physics_process(delta: float) -> void:
 	match state:
 		DEF:
 			interact()
 			move(delta)
+			pouse_check()
 		TRANS:
 			$CanvasLayer/Sprite2D.visible = false
 			velocity = Vector3(0,0,0)
 		ONFOCUS:
 			interact()
+		PAUSE:
+			pouse_check()
+			velocity = Vector3(0,0,0)
 	move_and_slide()
 
 func focus_on(pos: Vector3, look: Vector3):
@@ -78,3 +100,10 @@ func move(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+
+func _on_exit_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/menu.tscn")
+
+func _on_cont_pressed() -> void:
+	unpause()

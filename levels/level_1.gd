@@ -8,7 +8,7 @@ func _ready() -> void:
 	$SubViewport/blood_energy.connect("power", power)
 	
 	await get_tree().create_timer(2.0).timeout
-	$CanvasLayer/showcaser.showcase("level 1: BLOOD MACHINE")
+	$CanvasLayer/showcaser.showcase("episode 1: BLOOD MACHINE")
 
 func power():
 	$main_level/metal_door.queue_free()

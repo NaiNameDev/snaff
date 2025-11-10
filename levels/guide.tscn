@@ -339,7 +339,7 @@ mesh = SubResource("BoxMesh_ly3hx")
 shape = SubResource("ConcavePolygonShape3D_srpys")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.4178327e-07, 0, 0.9669844, 0, 5.775089, 0, -10.106823, 0, -4.226823e-08, -5.037853, -2.411296, -0.12464714)
+transform = Transform3D(-4.417832e-07, 0, 5.56249, 0, 5.775089, 0, -10.106821, 0, -2.4314417e-07, -7.308562, -2.411296, -0.12464714)
 mesh = SubResource("BoxMesh_ly3hx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D9"]
@@ -395,6 +395,7 @@ shape = SubResource("BoxShape3D_wndkh")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 offset_top = 320.0
 offset_right = 640.0
 offset_bottom = 343.0
