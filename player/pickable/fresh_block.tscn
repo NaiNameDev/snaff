@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://f6qe2muxts44"]
+
+[ext_resource type="Script" uid="uid://xi63sa2fgvi7" path="res://player/pickable/fresh_block.gd" id="1_vkevn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1raea"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vkevn"]
+
+[node name="granade" type="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_vkevn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1raea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_vkevn")
