@@ -23,6 +23,12 @@ func _physics_process(delta: float) -> void:
 		move(delta)
 	move_and_slide()
 
+func set_focus(v: bool):
+	$CollisionShape3D.disabled = !v
+	focus = v
+	visible = v
+	velocity = Vector3(0,0,0)
+
 func use():
 	if item != Items.items.DEF:
 		if item == Items.items.GRANADE:
@@ -36,11 +42,16 @@ func use():
 			$AudioStreamPlayer3D.stop()
 			tv.goal_status.emit(goal)
 			$OmniLight3D.visible = false
-			$CollisionShape3D.queue_free()
+
+func pick_flesh():
+	$Camera3D/MeshInstance3D.visible = true
+
+func un_pick_flesh():
+	$Camera3D/MeshInstance3D.visible = false
 
 func machine_death():
 	tv.on_kill()
-	for i in 16: await camera_shake()
+	for i in 32: await camera_shake()
 
 func camera_shake():
 	var old = camera.position
@@ -51,6 +62,14 @@ func camera_shake():
 func interact() -> void:
 	if Input.is_action_just_pressed("action") and intercatc_ray.get_collider():
 		intercatc_ray.get_collider().interact.emit(self)
+
+func play_block_sound():
+	$AudioStreamPlayer2.play(1)
+	await get_tree().create_timer(0.77).timeout
+	$AudioStreamPlayer2.stop()
+
+func play_pick():
+	$granade_pick.play()
 
 func move(delta: float) -> void:
 	if not is_on_floor():

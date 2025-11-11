@@ -6,6 +6,7 @@ func _on_start_pressed() -> void:
 	if !starting:
 		$Panel.visible = false
 		$SubViewportContainer/SubViewport/Node3D/TV.image_state(false)
+		$startsound.play()
 		
 		var mtwn1: Tween = get_tree().create_tween()
 		var mtwn2: Tween = get_tree().create_tween()
@@ -18,6 +19,12 @@ func _on_start_pressed() -> void:
 		starting = true
 		var cam: Camera3D = $SubViewportContainer/SubViewport/Node3D/Camera3D
 		var twn: Tween = cam.create_tween()
+		
+		var ttwn_sound = $AudioStreamPlayer.create_tween()
+		ttwn_sound.tween_property($AudioStreamPlayer, "volume_db", -20, 1.5)
+		
+		var ttwn_start_sound = create_tween()
+		ttwn_start_sound.tween_property($startsound, "volume_db", -20, 3)
 		
 		twn.set_trans(Tween.TRANS_BACK)
 		twn.tween_property(cam, "global_position", Vector3(cam.global_position.x, cam.global_position.y, -0.436), 2.0)

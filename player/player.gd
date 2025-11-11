@@ -14,11 +14,14 @@ const JUMP_VELOCITY = 4.5
 @export var camera: Camera3D
 @export var intercatc_ray: RayCast3D
 
+var scary: bool = false
+
 func _ready() -> void:
 	$noise.play()
 	await get_tree().create_timer(1.0).timeout
 	$CanvasLayer/noise.visible = false
 	$noise.stop()
+	$AudioStreamPlayer.play(Global.pos)
 
 func pause():
 	state = PAUSE
@@ -65,7 +68,7 @@ func focus_on(pos: Vector3, look: Vector3):
 	var twn3 = camera.create_tween()
 	twn1.set_trans(Tween.TRANS_SINE)
 	twn2.set_trans(Tween.TRANS_SINE)
-	twn1.tween_property(camera, "global_position", pos, (pos.length() + global_position.length()) / 10)
+	twn1.tween_property(camera, "global_position", pos, 0.5)
 	twn3.tween_property(camera, "global_rotation", Vector3(rot.x, rot.y,0), 0.5)
 	await twn2.tween_property(self, "global_rotation", Vector3(rot.x, rot.y,0), 0.5).finished
 	state = ONFOCUS
@@ -107,3 +110,20 @@ func _on_exit_pressed() -> void:
 
 func _on_cont_pressed() -> void:
 	unpause()
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
+
+func get_pos() -> float:
+	return $AudioStreamPlayer.get_playback_position()
+
+func _on_blockopriemnik_insert() -> void:
+	$AudioStreamPlayer.stop()
+	scary = true
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	if scary:
+		$AudioStreamPlayer2.play()
+		var twn: Tween = create_tween()
+		twn.tween_property($AudioStreamPlayer2, "volume_db", -10, 2)
+	

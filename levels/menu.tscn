@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ducvhtb5wy87b"]
+[gd_scene load_steps=9 format=3 uid="uid://ducvhtb5wy87b"]
 
 [ext_resource type="Texture2D" uid="uid://70qqh1qhc0pk" path="res://player/models/fresh_tetxures/stone.png" id="1_cnlwo"]
 [ext_resource type="Script" uid="uid://bgkw0iebhgv1h" path="res://levels/menu.gd" id="1_gbx6r"]
 [ext_resource type="PackedScene" uid="uid://bs1sro287651d" path="res://player/TV.tscn" id="2_kfbsc"]
+[ext_resource type="AudioStream" uid="uid://15mmhda3rcn3" path="res://music/Socapex - Dark ambiance.mp3" id="4_bvm7p"]
+[ext_resource type="AudioStream" uid="uid://f4hnyf2stlgv" path="res://player/sound/Start_Sounds_017.wav" id="5_2fskk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfbsc"]
 albedo_texture = ExtResource("1_cnlwo")
@@ -113,31 +115,22 @@ offset_bottom = 264.0
 layout_mode = 2
 
 [node name="Button" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(320, 0)
+custom_minimum_size = Vector2(320, 57)
 layout_mode = 2
-text = "sigma"
+text = "episode 0: GUIDE"
 
 [node name="Button2" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 57)
 layout_mode = 2
-text = "sigma"
+text = "episode 1: BLOOD MACHINE"
 
 [node name="Button3" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 57)
 layout_mode = 2
-text = "sigma"
+text = "episode 2: FALL"
 
 [node name="Button4" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-layout_mode = 2
-text = "sigma"
-
-[node name="Button5" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-layout_mode = 2
-text = "sigma"
-
-[node name="Button6" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-layout_mode = 2
-text = "sigma"
-
-[node name="Button7" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 57)
 layout_mode = 2
 text = "sigma"
 
@@ -149,13 +142,18 @@ offset_right = 363.0
 offset_bottom = 9.0
 text = "X"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bvm7p")
+autoplay = true
+parameters/looping = true
+
+[node name="startsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2fskk")
+
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="episodes" to="." method="_on_episodes_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button3" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button4" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button5" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button6" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button7" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/x" to="." method="_on_x_pressed"]

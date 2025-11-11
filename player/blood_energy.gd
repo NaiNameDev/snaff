@@ -23,7 +23,9 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if active:
 		$AudioStreamPlayer3D2.play()
+		$AudioStreamPlayer3D3.play()
 		power.emit()
 		body.machine_death()
 		await get_tree().create_timer(0.5).timeout
 		$AudioStreamPlayer3D2.stop()
+		$AudioStreamPlayer3D3.stop()

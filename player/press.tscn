@@ -1,8 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://07t43s66vuy3"]
+[gd_scene load_steps=20 format=4 uid="uid://07t43s66vuy3"]
 
 [ext_resource type="Texture2D" uid="uid://ds10mi4dnb6t" path="res://player/models/Untitled_metal.png" id="1_3fjwr"]
 [ext_resource type="Script" uid="uid://dduiux523x1uo" path="res://player/press.gd" id="1_nc3p6"]
+[ext_resource type="PackedScene" uid="uid://f6qe2muxts44" path="res://player/pickable/fresh_block.tscn" id="2_nc3p6"]
 [ext_resource type="Texture2D" uid="uid://cmob7n36m8n38" path="res://player/models/Untitled_rust_zauponnnnyy.png" id="2_xyhcn"]
+[ext_resource type="AudioStream" uid="uid://cyjtjgtwgowqg" path="res://player/sound/elevator_door.wav" id="5_rgunp"]
+[ext_resource type="AudioStream" uid="uid://k4xmyx3osr41" path="res://player/sound/i_love_gore.mp3" id="6_ub0pt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dj6n"]
 resource_name = "Material.001"
@@ -89,33 +92,6 @@ data = PackedVector3Array(-1.0004, -1, 1, -1.0004, 1, -1.0004, -1.0004, 1, 1, -1
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nc3p6"]
 data = PackedVector3Array(-1.0004, -1, 1, -1.0004, 1, -1.0004, -1.0004, 1, 1, -1.0004, -1, 1, -1.0004, -1, -1.0004, -1.0004, 1, -1.0004, -1.0004, -1, -1.0004, 1, 1, -1.0004, -1.0004, 1, -1.0004, -1.0004, -1, -1.0004, 1, -1, -1.0004, 1, 1, -1.0004, 1, -1, -1.0004, 1, 1, 1, 1, 1, -1.0004, 1, -1, -1.0004, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1.0004, 1, 1, 1, 1, 1, 1, -1, 1, -1.0004, -1, 1, -1.0004, 1, 1, -1.0004, -1, -1.0004, 1, -1, 1, 1, -1, -1.0004, -1.0004, -1, -1.0004, -1.0004, -1, 1, 1, -1, 1, 1, 1, -1.0004, -1.0004, 1, 1, -1.0004, 1, -1.0004, 1, 1, -1.0004, 1, 1, 1, -1.0004, 1, 1, -13.0257, -1.0555, 13.0257, -13.0257, -0.9281, -13.0257, -13.0257, -0.9281, 13.0257, -13.0257, -1.0555, 13.0257, -13.0257, -1.0555, -13.0257, -13.0257, -0.9281, -13.0257, -13.0257, -1.0555, -13.0257, 13.0257, -0.9281, -13.0257, -13.0257, -0.9281, -13.0257, -13.0257, -1.0555, -13.0257, 13.0257, -1.0555, -13.0257, 13.0257, -0.9281, -13.0257, 13.0257, -1.0555, -13.0257, 13.0257, -0.9281, 13.0257, 13.0257, -0.9281, -13.0257, 13.0257, -1.0555, -13.0257, 13.0257, -1.0555, 13.0257, 13.0257, -0.9281, 13.0257, 13.0257, -1.0555, 13.0257, -13.0257, -0.9281, 13.0257, 13.0257, -0.9281, 13.0257, 13.0257, -1.0555, 13.0257, -13.0257, -1.0555, 13.0257, -13.0257, -0.9281, 13.0257, -13.0257, -1.0555, -13.0257, 13.0257, -1.0555, 13.0257, 13.0257, -1.0555, -13.0257, -13.0257, -1.0555, -13.0257, -13.0257, -1.0555, 13.0257, 13.0257, -1.0555, 13.0257, 13.0257, -0.9281, -13.0257, -13.0257, -0.9281, 13.0257, -13.0257, -0.9281, -13.0257, 13.0257, -0.9281, -13.0257, 13.0257, -0.9281, 13.0257, -13.0257, -0.9281, 13.0257)
 
-[sub_resource type="Animation" id="Animation_nc3p6"]
-resource_name = "press"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Untitled/Cube_001:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.0677197, 4.40753), Vector3(0, -0.0677197, 3.6428943)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Untitled/Cube_002:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.0677197, -4.465891), Vector3(0, -0.0677197, -3.6774585)]
-}
-
 [sub_resource type="Animation" id="Animation_rgunp"]
 length = 0.001
 tracks/0/type = "value"
@@ -143,6 +119,33 @@ tracks/1/keys = {
 "values": [Vector3(0, -0.0677197, -4.465891)]
 }
 
+[sub_resource type="Animation" id="Animation_nc3p6"]
+resource_name = "press"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Untitled/Cube_001:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.0677197, 4.40753), Vector3(0, -0.0677197, 3.6428943)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Untitled/Cube_002:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.0677197, -4.465891), Vector3(0, -0.0677197, -3.6774585)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ub0pt"]
 _data = {
 &"RESET": SubResource("Animation_rgunp"),
@@ -154,6 +157,7 @@ size = Vector3(1, 4.0909424, 3.189209)
 
 [node name="press" type="Node3D"]
 script = ExtResource("1_nc3p6")
+block = ExtResource("2_nc3p6")
 
 [node name="Untitled" type="Node3D" parent="."]
 
@@ -200,6 +204,19 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015075684, -0.099243164)
 shape = SubResource("BoxShape3D_nc3p6")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4858053, -1.5725659, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8538482, 1.6052761, 0)
+stream = ExtResource("5_rgunp")
+volume_db = -5.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8538482, 1.6052761, 0)
+stream = ExtResource("6_ub0pt")
+volume_db = -5.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

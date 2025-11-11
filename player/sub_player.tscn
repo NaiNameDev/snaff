@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4qutmmqdwyx6"]
+[gd_scene load_steps=11 format=3 uid="uid://b4qutmmqdwyx6"]
 
 [ext_resource type="Script" uid="uid://d4hng4leeuvnw" path="res://player/sub_player.gd" id="1_8ubiq"]
 [ext_resource type="Script" uid="uid://dfvhxolo1twvf" path="res://player/sub_camera.gd" id="2_8ubiq"]
+[ext_resource type="Texture2D" uid="uid://boo3hq7r2aqah" path="res://player/models/fresh_tetxures/flesh.png" id="3_1o8jt"]
 [ext_resource type="AudioStream" uid="uid://bf2pokl41b2vn" path="res://levels/sound/bomb.mp3" id="3_gd25m"]
+[ext_resource type="AudioStream" uid="uid://k4xmyx3osr41" path="res://player/sound/i_love_gore.mp3" id="5_xgy84"]
+[ext_resource type="AudioStream" uid="uid://tmmwekehs30w" path="res://player/sound/granada_pickup.mp3" id="6_yq424"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yw30f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgy84"]
+albedo_texture = ExtResource("3_1o8jt")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gd25m"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gd25m"]
 radius = 3.181844
@@ -18,9 +26,11 @@ intercatc_ray = NodePath("Camera3D/RayCast3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_yw30f")
+disabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+cull_mask = 524287
 script = ExtResource("2_8ubiq")
 player = NodePath("..")
 
@@ -28,6 +38,12 @@ player = NodePath("..")
 target_position = Vector3(0, 0, -1.5)
 collision_mask = 2
 collide_with_areas = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.45696503, 0, 0, 0, 0.45696503, 0, 0, 0, 0.45696503, 0.5521606, -0.46271777, -0.72073996)
+visible = false
+material_override = SubResource("StandardMaterial3D_xgy84")
+mesh = SubResource("BoxMesh_gd25m")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_gd25m")
@@ -47,5 +63,13 @@ monitoring = false
 shape = SubResource("SphereShape3D_gd25m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xgy84")
+volume_db = -15.0
+
+[node name="granade_pick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yq424")
+volume_db = -30.0
 
 [connection signal="body_entered" from="exploision_radius" to="." method="_on_exploision_radius_body_entered"]

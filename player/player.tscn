@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl16tsf34xfyk"]
+[gd_scene load_steps=11 format=3 uid="uid://dl16tsf34xfyk"]
 
 [ext_resource type="Script" uid="uid://bnsewyq6bv8xb" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Script" uid="uid://dp423qpdq22en" path="res://player/camera.gd" id="2_g1dw6"]
 [ext_resource type="Shader" uid="uid://d3mk2mrw1ny3n" path="res://player/clear_noise.gdshader" id="3_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://dc1a4wa1nysbl" path="res://levels/sound/noise.mp3" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://vle0tdl5h78" path="res://music/EmptyCity.ogg" id="5_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://blevymc11hsvd" path="res://music/horror_loop.mp3" id="6_g6k8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yw30f"]
 
@@ -59,10 +61,18 @@ text = "exit"
 [node name="cont" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_left = 43.0
+offset_top = 305.0
+offset_right = 188.0
+offset_bottom = 343.0
+text = "continue"
+
+[node name="restart" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 43.0
 offset_top = 357.0
 offset_right = 188.0
 offset_bottom = 395.0
-text = "continue"
+text = "restart"
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
@@ -91,5 +101,16 @@ max_db = -10.0
 autoplay = true
 parameters/looping = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qjkh3")
+volume_db = -15.0
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_g6k8r")
+volume_db = -80.0
+parameters/looping = true
+
 [connection signal="pressed" from="CanvasLayer/Panel/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/cont" to="." method="_on_cont_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/restart" to="." method="_on_restart_pressed"]

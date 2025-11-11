@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://dwfk0vte5c41h"]
+[gd_scene load_steps=74 format=4 uid="uid://dwfk0vte5c41h"]
 
 [ext_resource type="Texture2D" uid="uid://ciswku1i6blre" path="res://player/models/fresh_tetxures/ostone.png" id="1_0srwa"]
 [ext_resource type="Script" uid="uid://0peamppkf483" path="res://levels/level_2.gd" id="1_k2aru"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b11eeq5yxqw7g" path="res://player/models/energy_pit_ostone.png" id="7_hbb88"]
 [ext_resource type="Texture2D" uid="uid://cntijjube8b6a" path="res://player/models/energy_pit_rust.png" id="8_wcjpl"]
 [ext_resource type="AudioStream" uid="uid://bsvf56wdt36dj" path="res://player/sound/Crackling_Fireplace.mp3" id="9_5orea"]
+[ext_resource type="AudioStream" uid="uid://k4xmyx3osr41" path="res://player/sound/i_love_gore.mp3" id="10_ngvhw"]
 [ext_resource type="PackedScene" uid="uid://ccxhk1t45mehf" path="res://player/models/cool_window.glb" id="10_uo0vl"]
 [ext_resource type="Texture2D" uid="uid://drh80eluwrgvh" path="res://player/models/metal_door_metall_door.png" id="11_vm7no"]
 [ext_resource type="PackedScene" uid="uid://b4qutmmqdwyx6" path="res://player/sub_player.tscn" id="12_hbb88"]
@@ -929,6 +930,11 @@ libraries = {
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="watch_room/blood_energy2"]
 stream = ExtResource("9_5orea")
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="watch_room/blood_energy2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.08149528, 0, -0.14496374)
+stream = ExtResource("10_ngvhw")
+volume_db = -7.21
 
 [node name="cool_window" parent="watch_room" instance=ExtResource("10_uo0vl")]
 transform = Transform3D(-2.8231742e-08, 0, 0.645867, 0, 0.645867, 0, -0.645867, 0, -2.8231742e-08, 12.992106, 12.8341, 2.4437323)
