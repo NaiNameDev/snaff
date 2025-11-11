@@ -1,11 +1,11 @@
 extends CharacterBody3D
-
 enum {
 	DEF,
 	TRANS,
 	ONFOCUS,
 	PAUSE,
 }
+
 var state = DEF
 
 const SPEED = 5.0

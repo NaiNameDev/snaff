@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://tgqvgtfg2m5d"]
+[gd_scene load_steps=18 format=3 uid="uid://tgqvgtfg2m5d"]
 
 [ext_resource type="Script" uid="uid://bk1tvdcbwy0yi" path="res://levels/level_3.gd" id="1_bmgug"]
 [ext_resource type="PackedScene" uid="uid://dl16tsf34xfyk" path="res://player/player.tscn" id="1_gew73"]
 [ext_resource type="PackedScene" uid="uid://b5ijnjcpmu7x" path="res://levels/showcaser.tscn" id="2_bmgug"]
 [ext_resource type="Texture2D" uid="uid://70qqh1qhc0pk" path="res://player/models/fresh_tetxures/stone.png" id="3_20opy"]
 [ext_resource type="Texture2D" uid="uid://bs2fhbwwjty3m" path="res://player/ostone.png" id="5_20opy"]
+[ext_resource type="PackedScene" uid="uid://b4qutmmqdwyx6" path="res://player/sub_player.tscn" id="6_8l0e1"]
 
 [sub_resource type="Environment" id="Environment_8l0e1"]
 background_energy_multiplier = 0.0
@@ -48,7 +49,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 script = ExtResource("1_bmgug")
 
 [node name="player" parent="." instance=ExtResource("1_gew73")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9296515, 1.8601824, 0.5704611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9296515, 1.8601824, -12.848068)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.88202, -0.3048065, 0.35935187, 0, 0.76261187, 0.64685637, -0.47121203, -0.57054025, 0.6726389, 0, 1.9468408, -9.103069)
@@ -261,3 +262,17 @@ mesh = SubResource("BoxMesh_20opy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level/MeshInstance3D10/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_20opy")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="sub_player" parent="Node3D" instance=ExtResource("6_8l0e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.85143, 2.2230535, -0.62679124)
+
+[node name="sub_player2" parent="Node3D" instance=ExtResource("6_8l0e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.733482, 2.2230535, -0.62679124)
+
+[node name="sub_player3" parent="Node3D" instance=ExtResource("6_8l0e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.64502, 2.2230535, -0.62679124)
+
+[node name="sub_player4" parent="Node3D" instance=ExtResource("6_8l0e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8780918, 2.2230535, -0.62679124)
