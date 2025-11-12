@@ -86,11 +86,11 @@ albedo_texture = ExtResource("6_ofchu")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67vg4"]
 albedo_texture = ExtResource("6_ofchu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btoec"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xe1ru"]
 albedo_texture = ExtResource("6_ofchu")
 
 [sub_resource type="BoxMesh" id="BoxMesh_jq78i"]
-material = SubResource("StandardMaterial3D_btoec")
+material = SubResource("StandardMaterial3D_xe1ru")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lsnkt"]
 
@@ -1033,7 +1033,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_u4kh1")
 
 [node name="Cube2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.31124508, 0, 0, 0, 1.8351195, 0, 0, 0, 0.98503864, -9.045259, 2.8404796, -29.913706)
+transform = Transform3D(0.31124508, 0, 0, 0, 1.8351195, 0, 0, 0, 1.054626, -9.045259, 2.8404796, -29.913706)
 mesh = SubResource("ArrayMesh_s3q8p")
 skeleton = NodePath("")
 

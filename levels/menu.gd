@@ -3,6 +3,7 @@ extends Control
 var starting: bool = false
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	Global.utkacnt = 0
 	Global.deathcnt = 0
 
