@@ -25,9 +25,11 @@ func _input(event: InputEvent) -> void:
 	for i in players:
 		i.input.emit(event)
 
+var gate: bool = true
 func _on_blood_energy_power() -> void:
-	$Cube.queue_free()
-
+	if gate:
+		$Cube.queue_free()
+		gate = false
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	body.machine_death()

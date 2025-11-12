@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgixgk7njvay"]
+
+[ext_resource type="Script" uid="uid://or2iughdo7bu" path="res://player/duck.gd" id="1_i15i4"]
+[ext_resource type="PackedScene" uid="uid://duau18rw7esbq" path="res://player/textures/utka.glb" id="2_i15i4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i15i4"]
+size = Vector3(0.2919922, 0.38671875, 0.49145508)
+
+[node name="duck" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_i15i4")
+metadata/_custom_type_script = "uid://d3ef4us2ny670"
+
+[node name="utka" parent="." instance=ExtResource("2_i15i4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00048828125, 0.061523438, 0.00012207031)
+shape = SubResource("BoxShape3D_i15i4")

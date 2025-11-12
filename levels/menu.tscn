@@ -114,25 +114,30 @@ offset_bottom = 264.0
 [node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(320, 57)
+[node name="guide" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(320, 46)
 layout_mode = 2
 text = "episode 0: GUIDE"
 
-[node name="Button2" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 57)
+[node name="blood" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 text = "episode 1: BLOOD MACHINE"
 
-[node name="Button3" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 57)
+[node name="fall" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 text = "episode 2: FALL"
 
-[node name="Button4" type="Button" parent="Panel/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 57)
+[node name="bridges" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
-text = "sigma"
+text = "episode 3: BRIDGES"
+
+[node name="meat" type="Button" parent="Panel/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+text = "episode 4: MEAT"
 
 [node name="x" type="Button" parent="Panel"]
 layout_mode = 0
@@ -152,8 +157,9 @@ stream = ExtResource("5_2fskk")
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="episodes" to="." method="_on_episodes_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button2" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button3" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/Button4" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/guide" to="." method="_on_guide_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/blood" to="." method="_on_blood_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/fall" to="." method="_on_fall_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/bridges" to="." method="_on_bridges_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/GridContainer/meat" to="." method="_on_meat_pressed"]
 [connection signal="pressed" from="Panel/x" to="." method="_on_x_pressed"]

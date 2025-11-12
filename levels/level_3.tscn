@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://tgqvgtfg2m5d"]
+[gd_scene load_steps=62 format=4 uid="uid://tgqvgtfg2m5d"]
 
 [ext_resource type="Script" uid="uid://bk1tvdcbwy0yi" path="res://levels/level_3.gd" id="1_bmgug"]
 [ext_resource type="PackedScene" uid="uid://dl16tsf34xfyk" path="res://player/player.tscn" id="1_gew73"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://f22wmta4kx1h" path="res://player/blockopriemnik.tscn" id="16_u4kh1"]
 [ext_resource type="PackedScene" uid="uid://wrmf8cfe58m7" path="res://levels/level_changer.tscn" id="18_yafm2"]
 [ext_resource type="PackedScene" uid="uid://g0biabghduvv" path="res://levels/level_4.tscn" id="19_46211"]
+[ext_resource type="PackedScene" uid="uid://cgixgk7njvay" path="res://player/duck.tscn" id="20_t5hu4"]
 
 [sub_resource type="Environment" id="Environment_8l0e1"]
 background_energy_multiplier = 0.0
@@ -621,7 +622,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("BoxShape3D_lsnkt")
 
 [node name="MeshInstance3D28" type="MeshInstance3D" parent="level"]
-transform = Transform3D(0.96468055, 0, 0, 0, 11.574389, 0, 0, 0, 20.291689, 26.817827, 1.6689396, 5.83025)
+transform = Transform3D(0.96468055, 0, 0, 0, 11.574389, 0, 0, 0, 20.291689, 26.817827, 1.6689396, 6.766465)
 mesh = SubResource("BoxMesh_jq78i")
 skeleton = NodePath("../../..")
 
@@ -746,6 +747,9 @@ mesh = SubResource("BoxMesh_xe1ru")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="level/MeshInstance3D46/StaticBody3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_svivd")
+
+[node name="duck" parent="level" instance=ExtResource("20_t5hu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.558004, 1.29852, -0.7358077)
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -927,6 +931,9 @@ light_color = Color(1, 0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.264193, 3.399025, -30.290823)
 light_color = Color(1, 0, 0, 1)
 
+[node name="duck" parent="lighjt" instance=ExtResource("20_t5hu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.636773, 1.29852, -25.217852)
+
 [node name="stool" type="Node3D" parent="."]
 transform = Transform3D(-1.1978391, 0, -0.07198291, 0, 1.2, 0, 0.07198291, 0, -1.1978391, 8.306367, 1.753197, -15.471022)
 
@@ -1076,6 +1083,12 @@ shape = SubResource("BoxShape3D_46211")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1306095, 2.5352368, -29.885986)
 layers = 524288
 aabb = AABB(-1, -1.8182067, -1, 2, 3.6364133, 2)
+
+[node name="duck" parent="." instance=ExtResource("20_t5hu4")]
+transform = Transform3D(0.09256179, 0, 0.9957069, 0, 1, 0, -0.9957069, 0, 0.09256179, 73.21894, 1.3588738, -0.79515505)
+
+[node name="duck2" parent="." instance=ExtResource("20_t5hu4")]
+transform = Transform3D(-0.77332044, 0, 0.6340154, 0, 1, 0, -0.6340154, 0, -0.77332044, 26.02807, 1.29852, 1.0972917)
 
 [connection signal="power" from="blood_energy" to="." method="_on_blood_energy_power"]
 [connection signal="insert" from="blockopriemnik" to="player" method="_on_blockopriemnik_insert"]

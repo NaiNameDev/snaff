@@ -38,6 +38,7 @@ func on_interact(player_self: CharacterBody3D) -> void:
 
 func on_kill():
 	is_dead = true
+	Global.deathcnt += 1
 	await get_tree().create_timer(0.5).timeout
 	image_state(false)
 	await get_tree().create_timer(1.5).timeout

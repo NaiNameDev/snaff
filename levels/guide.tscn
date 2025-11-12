@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dd5ibfcxwt2tn"]
+[gd_scene load_steps=32 format=4 uid="uid://dd5ibfcxwt2tn"]
 
 [ext_resource type="Script" uid="uid://bfoj35c102ymq" path="res://levels/guide_src.gd" id="1_71hy7"]
 [ext_resource type="PackedScene" uid="uid://bs1sro287651d" path="res://player/TV.tscn" id="2_n2y6s"]
@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cvmkw4glyqpvy" path="res://player/pickable/granade.tscn" id="9_tdrj4"]
 [ext_resource type="PackedScene" uid="uid://dl16tsf34xfyk" path="res://player/player.tscn" id="10_piwg2"]
 [ext_resource type="PackedScene" uid="uid://wrmf8cfe58m7" path="res://levels/level_changer.tscn" id="11_n2y6s"]
+[ext_resource type="PackedScene" uid="uid://cgixgk7njvay" path="res://player/duck.tscn" id="11_t7e37"]
 [ext_resource type="PackedScene" uid="uid://b5ijnjcpmu7x" path="res://levels/showcaser.tscn" id="11_x0o5o"]
 [ext_resource type="PackedScene" uid="uid://chu02mmweq3h5" path="res://levels/level_1.tscn" id="12_4vtcg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur00s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0o5o"]
 albedo_texture = ExtResource("4_x0o5o")
 metallic_specular = 0.0
 uv1_scale = Vector3(1.505, 1.505, 1.505)
@@ -22,22 +23,22 @@ uv1_offset = Vector3(-0.36, -0.505, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_srpys"]
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_ur00s")
+material = SubResource("StandardMaterial3D_x0o5o")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_srpys"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly3hx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7e37"]
 albedo_texture = ExtResource("5_t7e37")
 
 [sub_resource type="BoxMesh" id="BoxMesh_4n8tn"]
-material = SubResource("StandardMaterial3D_ly3hx")
+material = SubResource("StandardMaterial3D_t7e37")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wndkh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyrwj"]
 albedo_texture = ExtResource("5_t7e37")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ly3hx"]
-material = SubResource("StandardMaterial3D_wndkh")
+material = SubResource("StandardMaterial3D_eyrwj")
 
 [sub_resource type="Environment" id="Environment_46lwt"]
 background_energy_multiplier = 0.0
@@ -55,7 +56,7 @@ cull_mode = 2
 albedo_texture = ExtResource("6_eyrwj")
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_x0o5o"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_5k756"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -85,7 +86,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAP+//////////7//////AAD/v///AAD///+///8AAP////8AAP//////////////////AAAAAP////8AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/3//f/9//3//f/9//3//fwAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_x0o5o")
+shadow_mesh = SubResource("ArrayMesh_5k756")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e7anx"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
@@ -95,7 +96,7 @@ resource_name = "Material.001"
 cull_mode = 2
 albedo_texture = ExtResource("8_sl38q")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_t7e37"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_sl38q"]
 _surfaces = [{
 "aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "format": 34896613377,
@@ -127,7 +128,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD//wAA/////w72AAD///////8AAP////9PCgAA//8AAAAAAAD/////AAAAAP//////////VNUAAP////9U1QAA//8AAFTV/////wAAVNX//w726oRU1f//DvYZ+1TV////////VNX//22LGftU1f//DvYAAFTV/////wAAVNX//22L6oRU1f//TwoAAFTV///Vfhn7VNX//9V+6oRU1f//AAD//1TV//9PCuqEVNX//08KGftU1f//AAAAAFTV//9tixn7VNUaFG2L6oRU1f//bYvqhFTVGhRtixn7VNUAAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1QAA/////1TVAAAAAP//VNUAAP//AABU1QAAAAAAAFTV//8AAP///78AAP//////v/////////+/AAAAAP///7///9V+6oRU1RoU1X4Z+1TV///Vfhn7VNUaFNV+6oRU1RoUbYvqhFTVGhQO9hn7VNUaFA726oRU1RoUbYsZ+1TVGhRPCuqEVNUaFNV+GftU1RoU1X7qhFTVGhRPChn7VNX//08K6oT/vxoU1X7qhP+////VfuqE/78aFE8K6oT/v///DvbqhFTVGhQO9hn7VNX//w72GftU1RoUDvbqhFTV//9ti+qE/78aFA726oT/v///DvbqhP+/GhRti+qE/7///w72Gfv//xoUbYsZ+/////9tixn7//8aFA72Gfv/////1X4Z+///GhRPChn7/////08KGfv//xoU1X4Z+/////9PChn7VNUaFE8K6oRU1f//TwrqhFTVGhRPChn7VNUAAA72AAD//wAA1X4AAP//AABPCgAA/////w72//9U1f//bYv//1TV/////+qEVNX//9V+//9U1f//Dvb/f1TV//9ti/9/VNX//9V+/39U1f//Twr//1TV//8AAOqEVNX//08K/39U1f//Dvb///+///9ti////78AAG2L////v///1X7///+/AADVfv///7///08K////vwAATwr///+/AAD//xn7VNX/////6oRU1QAA///qhFTVAAD///9/VNUAAAAA/39U1f//AADqhFTVAAAAAOqEVNUAAG2L//9U1QAA//8Z+1TVAAD//+qEVNUAAP///39U1QAAbYsZ+1TVAADVfv//VNUAAG2L/39U1QAADvYAAFTVAADVfgAAVNUAAE8KGftU1QAATwr//1TVAAAAAOqEVNUAAAAA/39U1QAATwoAAFTV//8O9gAAVNX//22L/39U1f//Dvb/f1TV//9PCgAAVNX//9V+/39U1f//Twr/f1TVAAAO9v9/VNUAAA726oRU1QAAbYsAAFTVAABti+qEVNUAAA72GftU1QAADvb//1TVAADVfhn7VNUAANV+6oRU1QAAAAAZ+1TVAABPCuqEVNUAANV+/39U1QAATwr/f1TVAABtiwAA/////22LAAD/////1X4AAP///////xn7VNX//////39U1f//AAAZ+1TV//8AAP9/VNUAAA72////vwAAAAAZ+1TV//8AABn7VNX//wAA/39U1f////8Z+1TV//////9/VNX//22LAABU1f//1X4AAFTV/z//v/+//z//P/+//z//v/8//7//P/+/VNWqKlTVqipU1aoqVNWqKqqqVFWqqlRVqqpUVaqqVVWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVVWqqlRVVNWqKlTVqipU1aoqVNWqKlRVVFVUVVRVVFVUVVRVVFVUVaqqVFWqqlRVqqpUVaqq/3//f/9//3//f/9//3//f1RVVFVUVVRVVFVUVVRVVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVf9//3//f/9//3//f/9//39UVVRVVFVUVVRVVFVUVVRV/3//f/9//3//f/9//3//f/+//z//v/8//7//P/8//7//P/+//z//v/8//7//P/+/VNWqKlTVqipU1aoqVNWqKv8//7//P/+//z//v6qqVFWqqlVVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlVVqqpVVaqqVFX/f/9//3//f/9//3//f/9//3//f/9//3//f/9/VNWqKlTVqipU1aoqVNWqKlRVVFVUVVRVVVVUVVRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqqqpUVaqqVFWqqlRVqqpVVaqqVVWqqlVVVFWpqlRVqapUVaqqVFWpqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqq/7//P/+//z//P/+/qqpUVaqqVFWqqlVVqqpUVf9//39VVVRVVFVUVVRVVFVU1aoqVNWqKqqqVFWqqlRV")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_t7e37")
+shadow_mesh = SubResource("ArrayMesh_sl38q")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wndkh"]
 
@@ -139,7 +140,7 @@ script = ExtResource("1_71hy7")
 players = [NodePath("SubViewport/sub_player")]
 
 [node name="TV" parent="." node_paths=PackedStringArray("view_port", "player", "sub_player") instance=ExtResource("2_n2y6s")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.0686615, 2.1545267, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.7548523, 2.1545267, 0)
 view_port = NodePath("../SubViewport")
 player = NodePath("../player")
 sub_player = NodePath("../SubViewport/sub_player")
@@ -383,7 +384,7 @@ spot_angle_attenuation = 2.4622936
 transform = Transform3D(-1.1978391, 0, -0.07198291, 0, 1.2, 0, 0.07198291, 0, -1.1978391, 3.069082, 1.1147692, -0.018931866)
 
 [node name="Cube" type="MeshInstance3D" parent="stool"]
-transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 1.8417363, 0, 0, 0)
+transform = Transform3D(0.7, 0, -7.450581e-09, 0, 1.0000001, 0, 3.7252903e-09, 0, 1.8417362, 0.26103663, 0, 0.015686736)
 mesh = SubResource("ArrayMesh_6psyv")
 skeleton = NodePath("")
 
@@ -391,6 +392,9 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stool/Cube/StaticBody3D"]
 shape = SubResource("BoxShape3D_wndkh")
+
+[node name="duck" parent="stool" instance=ExtResource("11_t7e37")]
+transform = Transform3D(-0.83183265, 0, 0.049988132, 0, 0.8333334, 0, -0.049988132, 0, -0.83183265, -0.2959292, -0.39614713, 0.6906376)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

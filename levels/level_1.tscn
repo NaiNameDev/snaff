@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://chu02mmweq3h5"]
+[gd_scene load_steps=41 format=4 uid="uid://chu02mmweq3h5"]
 
 [ext_resource type="Script" uid="uid://cflkjlywl4cs4" path="res://levels/level_1.gd" id="1_aerfg"]
 [ext_resource type="Texture2D" uid="uid://70qqh1qhc0pk" path="res://player/models/fresh_tetxures/stone.png" id="1_bt44k"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cfjij8gg63p6b" path="res://player/models/door_door.png" id="8_08mmt"]
 [ext_resource type="PackedScene" uid="uid://b4qutmmqdwyx6" path="res://player/sub_player.tscn" id="9_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://cvmkw4glyqpvy" path="res://player/pickable/granade.tscn" id="11_5ot28"]
+[ext_resource type="PackedScene" uid="uid://cgixgk7njvay" path="res://player/duck.tscn" id="12_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://b5ijnjcpmu7x" path="res://levels/showcaser.tscn" id="13_betor"]
 [ext_resource type="PackedScene" uid="uid://ccs3agrtdprlk" path="res://player/blood_energy.tscn" id="13_nmsli"]
 [ext_resource type="PackedScene" uid="uid://wrmf8cfe58m7" path="res://levels/level_changer.tscn" id="14_betor"]
@@ -168,7 +169,7 @@ resource_name = "Material.001"
 cull_mode = 2
 albedo_texture = ExtResource("8_3sk1a")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_fu6cr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_lrvbd"]
 _surfaces = [{
 "aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
 "format": 34896613377,
@@ -200,7 +201,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD//wAA/////w72AAD///////8AAP////9PCgAA//8AAAAAAAD/////AAAAAP//////////VNUAAP////9U1QAA//8AAFTV/////wAAVNX//w726oRU1f//DvYZ+1TV////////VNX//22LGftU1f//DvYAAFTV/////wAAVNX//22L6oRU1f//TwoAAFTV///Vfhn7VNX//9V+6oRU1f//AAD//1TV//9PCuqEVNX//08KGftU1f//AAAAAFTV//9tixn7VNUaFG2L6oRU1f//bYvqhFTVGhRtixn7VNUAAAAAAABU1f//AAD//1TV//8AAAAAVNUAAAAA//9U1QAA/////1TVAAAAAP//VNUAAP//AABU1QAAAAAAAFTV//8AAP///78AAP//////v/////////+/AAAAAP///7///9V+6oRU1RoU1X4Z+1TV///Vfhn7VNUaFNV+6oRU1RoUbYvqhFTVGhQO9hn7VNUaFA726oRU1RoUbYsZ+1TVGhRPCuqEVNUaFNV+GftU1RoU1X7qhFTVGhRPChn7VNX//08K6oT/vxoU1X7qhP+////VfuqE/78aFE8K6oT/v///DvbqhFTVGhQO9hn7VNX//w72GftU1RoUDvbqhFTV//9ti+qE/78aFA726oT/v///DvbqhP+/GhRti+qE/7///w72Gfv//xoUbYsZ+/////9tixn7//8aFA72Gfv/////1X4Z+///GhRPChn7/////08KGfv//xoU1X4Z+/////9PChn7VNUaFE8K6oRU1f//TwrqhFTVGhRPChn7VNUAAA72AAD//wAA1X4AAP//AABPCgAA/////w72//9U1f//bYv//1TV/////+qEVNX//9V+//9U1f//Dvb/f1TV//9ti/9/VNX//9V+/39U1f//Twr//1TV//8AAOqEVNX//08K/39U1f//Dvb///+///9ti////78AAG2L////v///1X7///+/AADVfv///7///08K////vwAATwr///+/AAD//xn7VNX/////6oRU1QAA///qhFTVAAD///9/VNUAAAAA/39U1f//AADqhFTVAAAAAOqEVNUAAG2L//9U1QAA//8Z+1TVAAD//+qEVNUAAP///39U1QAAbYsZ+1TVAADVfv//VNUAAG2L/39U1QAADvYAAFTVAADVfgAAVNUAAE8KGftU1QAATwr//1TVAAAAAOqEVNUAAAAA/39U1QAATwoAAFTV//8O9gAAVNX//22L/39U1f//Dvb/f1TV//9PCgAAVNX//9V+/39U1f//Twr/f1TVAAAO9v9/VNUAAA726oRU1QAAbYsAAFTVAABti+qEVNUAAA72GftU1QAADvb//1TVAADVfhn7VNUAANV+6oRU1QAAAAAZ+1TVAABPCuqEVNUAANV+/39U1QAATwr/f1TVAABtiwAA/////22LAAD/////1X4AAP///////xn7VNX//////39U1f//AAAZ+1TV//8AAP9/VNUAAA72////vwAAAAAZ+1TV//8AABn7VNX//wAA/39U1f////8Z+1TV//////9/VNX//22LAABU1f//1X4AAFTV/z//v/+//z//P/+//z//v/8//7//P/+/VNWqKlTVqipU1aoqVNWqKqqqVFWqqlRVqqpUVaqqVVWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVVWqqlRVVNWqKlTVqipU1aoqVNWqKlRVVFVUVVRVVFVUVVRVVFVUVaqqVFWqqlRVqqpUVaqq/3//f/9//3//f/9//3//f1RVVFVUVVRVVFVUVVRVVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVf9//3//f/9//3//f/9//39UVVRVVFVUVVRVVFVUVVRV/3//f/9//3//f/9//3//f/+//z//v/8//7//P/8//7//P/+//z//v/8//7//P/+/VNWqKlTVqipU1aoqVNWqKv8//7//P/+//z//v6qqVFWqqlVVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlVVqqpVVaqqVFX/f/9//3//f/9//3//f/9//3//f/9//3//f/9/VNWqKlTVqipU1aoqVNWqKlRVVFVUVVRVVVVUVVRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqqqqpUVaqqVFWqqlRVqqpVVaqqVVWqqlVVVFWpqlRVqapUVaqqVFWpqlRVqqpUVaqqVFWqqlRVqqpUVaqqVFWqqlRVqqpUVaqq/7//P/+//z//P/+/qqpUVaqqVFWqqlVVqqpUVf9//39VVVRVVFVUVVRVVFVU1aoqVNWqKqqqVFWqqlRV")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_fu6cr")
+shadow_mesh = SubResource("ArrayMesh_lrvbd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ot28"]
 
@@ -681,6 +682,12 @@ skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/MeshInstance3D8/StaticBody3D"]
 shape = SubResource("BoxShape3D_bt44k")
+
+[node name="duck" parent="SubViewport/Node3D" instance=ExtResource("12_bgw3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1292837, 0.89022994, 2.192224)
+
+[node name="duck2" parent="SubViewport/Node3D" instance=ExtResource("12_bgw3c")]
+transform = Transform3D(-0.27086928, 0, 0.96261615, 0, 1, 0, -0.96261615, 0, -0.27086928, -30.309483, 2.6672244, -2.0384202)
 
 [node name="SubViewport2" type="SubViewport" parent="."]
 
